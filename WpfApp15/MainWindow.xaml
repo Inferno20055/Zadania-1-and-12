@@ -1,0 +1,56 @@
+﻿<Window x:Class="WpfApp15.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp15"
+        mc:Ignorable="d"
+        Title="Основная страница с выбором анкетирования(задания 1 и 12) " Height="550" Width="800">
+    <Grid Margin="10">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+
+            <RowDefinition Height="Auto"/>
+
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+
+        <Menu Grid.Row="0" Margin="0,0,0,10">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Сохранить" Click="SaveMenu_Click"/>
+                <MenuItem Header="Загрузить" Click="LoadMenu_Click"/>
+            </MenuItem>
+            <MenuItem Header="Действия">
+                <MenuItem Header="Добавить рейс" Click="AddButton_Click"/>
+
+            </MenuItem>
+        </Menu>
+
+        <!-- Панель фильтров -->
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0,0,0,10" VerticalAlignment="Center">
+            <Label Content="Пункт назначения:" VerticalAlignment="Center"/>
+            <TextBox x:Name="destinationTextBox" Width="150" Margin="5,0"/>
+
+            <Label Content="Время прибытия до:" VerticalAlignment="Center" Margin="10,0,0,0"/>
+            <TextBox x:Name="filterDateTextBox" Width="150" Margin="5,0" />
+
+            <Button Content="Фильтр" Margin="10,0,0,0" Click="FilterButton_Click"/>
+            <Button Content="переход к заданию 12" Margin="10 ,0,0,0" Click="Perehod_Click"/>
+        </StackPanel>
+
+        <!-- Таблица расписания -->
+        <DataGrid x:Name="dataGrid" Grid.Row="2" AutoGenerateColumns="False" Margin="0,0,0,10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер автобуса" Binding="{Binding BusNumber}"/>
+                <DataGridTextColumn Header="Тип автобуса" Binding="{Binding BusType}"/>
+                <DataGridTextColumn Header="Пункт назначения" Binding="{Binding Destination}"/>
+                <DataGridTextColumn Header="Дата отправления" Binding="{Binding DepartureDateTime}"/>
+                <DataGridTextColumn Header="Время отправления" Binding="{Binding DepartureTime}"/>
+                <DataGridTextColumn Header="" />
+                <!-- Можно добавить редактирование и удаление по необходимости -->
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
