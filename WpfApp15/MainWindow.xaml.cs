@@ -16,6 +16,7 @@ using System.IO;
 
 namespace WpfApp15
 {
+    ///пришлось использовать сериализацию для сохранения в json и xaml файл
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
